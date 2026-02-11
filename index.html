@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TDMJ9RC9');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>草咩咩遊戲工作室 | 沉浸式密室逃脫</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Zen+Maru+Gothic:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0c0a09', // stone-950
+                            purple: '#581c87', // purple-900
+                            accent: '#a855f7', // purple-500
+                            gold: '#fbbf24', // amber-400
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        display: ['"Zen Maru Gothic"', 'sans-serif'],
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    },
+                    animation: {
+                        fadeInUp: 'fadeInUp 0.3s ease-out forwards',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0c0a09;
+            color: #f3f4f6;
+        }
+        .glass-panel {
+            background: rgba(28, 25, 23, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* Hide scrollbar for clean modal */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* New Styles for News Card */
+        .news-card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(168, 85, 247, 0.2);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-purple-500 selection:text-white">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TDMJ9RC9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-panel border-b-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-brand-accent shadow-[0_0_10px_rgba(168,85,247,0.5)]">
+                        <!-- Logo Update -->
+                        <img src="https://github.com/YOYO700702ai/strawberryescape/blob/main/474636696-467764979719812-1819804518134389624-n.jpg?raw=true" alt="Logo" class="w-full h-full object-cover">
+                    </div>
+                    <span class="font-display text-xl font-bold tracking-wider text-white">草咩咩遊戲工作室</span>
+                </div>
+                <div class="hidden md:block"></div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-stone-900 border-t border-stone-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#hero" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-stone-800">首頁</a>
+                <a href="#news" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-stone-800">最新活動</a>
+                <a href="#games" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-stone-800">密室主題</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex flex-col justify-center overflow-hidden pt-24 pb-12">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <!-- Background Image Update -->
+            <img src="https://github.com/YOYO700702ai/strawberryescape/blob/main/02.jpg?raw=true" alt="Background" class="w-full h-full object-cover opacity-40 scale-105 animate-[pulse_10s_ease-in-out_infinite]">
+            <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/80 to-stone-950/30"></div>
+        </div>
+
+        <div class="relative z-10 w-full max-w-6xl mx-auto px-4 flex flex-col justify-center h-full">
+            
+            <!-- Main Content Area: Flex Row -->
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-8 mb-16">
+                
+                <!-- Left Column: Text -->
+                <div class="w-full md:w-1/2 text-left animate-fadeInUp space-y-6 pl-4">
+                    <h1 class="text-4xl md:text-6xl font-display font-bold leading-tight text-white drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]">
+                        歡迎來到<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">草咩咩遊戲工作室</span>
+                    </h1>
+                    <h2 class="text-xl md:text-2xl font-bold text-brand-accent tracking-wider border-l-4 border-brand-accent pl-4">
+                        沉浸式劇情體驗 × 推理與解謎盛宴
+                    </h2>
+                    <p class="text-gray-300 text-lg md:text-xl leading-relaxed opacity-90">
+                        在這裡，每一個細節都是故事的一部分。
+                    </p>
+                </div>
+
+                <!-- Right Column: Carousel -->
+                <div class="w-full md:w-5/12 flex justify-center md:justify-end">
+                    <div class="relative w-full max-w-md aspect-square rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(168,85,247,0.3)] border border-stone-700/50 bg-black animate-fadeInUp" style="animation-delay: 0.2s;">
+                        <!-- Slides Update -->
+                        <img src="https://github.com/YOYO700702ai/strawberryescape/blob/main/04.png?raw=true" class="hero-slide absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-100" alt="Slide 1">
+                        <img src="https://github.com/YOYO700702ai/strawberryescape/blob/main/05.png?raw=true" class="hero-slide absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0" alt="Slide 2">
+                        <img src="https://github.com/YOYO700702ai/strawberryescape/blob/main/06.png?raw=true" class="hero-slide absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0" alt="Slide 3">
+                        
+                        <!-- Navigation dots -->
+                        <div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
+                            <div class="slide-dot w-2 h-2 rounded-full bg-white transition-all opacity-100"></div>
+                            <div class="slide-dot w-2 h-2 rounded-full bg-white transition-all opacity-40"></div>
+                            <div class="slide-dot w-2 h-2 rounded-full bg-white transition-all opacity-40"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Features Grid (Quick Stats) -->
+            <div class="w-full border-t border-white/10 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10 pt-4">
+                <div class="text-center py-6 px-4 hover:bg-white/5 transition-colors duration-300">
+                    <div class="text-3xl mb-3 filter drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]">👥</div>
+                    <div class="text-base text-gray-300 font-medium mb-1">少人成行</div>
+                    <div class="text-sm text-brand-accent font-bold tracking-wide">2人即可開團</div>
+                </div>
+                <div class="text-center py-6 px-4 hover:bg-white/5 transition-colors duration-300">
+                    <div class="text-3xl mb-3 filter drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]">🎭</div>
+                    <div class="text-base text-gray-300 font-medium mb-1">沉浸體驗</div>
+                    <div class="text-sm text-brand-accent font-bold tracking-wide">精緻場景機關</div>
+                </div>
+                <div class="text-center py-6 px-4 hover:bg-white/5 transition-colors duration-300">
+                    <div class="text-3xl mb-3 filter drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]">📖</div>
+                    <div class="text-base text-gray-300 font-medium mb-1">完整解說</div>
+                    <div class="text-sm text-brand-accent font-bold tracking-wide">劇情完美復盤</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: News & Events -->
+    <section id="news" class="py-16 bg-[#131110] border-t border-stone-800 relative overflow-hidden">
+        <!-- Decorative background element -->
+        <div class="absolute -left-20 top-0 w-64 h-64 bg-purple-900/10 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="container mx-auto px-4 max-w-6xl relative z-10">
+            <div class="flex items-center gap-4 mb-8">
+                <h2 class="text-2xl md:text-3xl font-display font-bold text-white flex items-center gap-3">
+                    <span class="text-brand-accent">📢</span> 最新活動情報
+                </h2>
+                <div class="h-px bg-stone-700 flex-grow"></div>
+            </div>
+            
+            <!-- News Grid: Populated by JS -->
+            <div id="news-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Loading state (initially visible) -->
+                <div class="col-span-full text-center text-gray-500 py-8">正在載入最新活動...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Grid Section -->
+    <section id="games" class="py-20 relative bg-stone-900 border-b border-stone-800">
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-900 to-transparent opacity-50"></div>
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-display font-bold mb-4 text-white">熱門主題</h2>
+                <div class="w-20 h-1 bg-brand-accent mx-auto rounded-full mb-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    選擇您的冒險，開始一場未知的旅程。點擊主題卡片查看完整介紹。
+                </p>
+            </div>
+
+            <!-- Cards Container -->
+            <div id="game-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Cards injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Info -->
+    <footer id="info" class="bg-stone-900 pt-16 pb-8 border-t border-purple-900/30">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-full overflow-hidden border border-purple-500/50">
+                            <!-- Logo Update -->
+                            <img src="https://github.com/YOYO700702ai/strawberryescape/blob/main/474636696-467764979719812-1819804518134389624-n.jpg?raw=true" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-bold text-white">草咩咩遊戲工作室</h3>
+                    </div>
+                    <div class="space-y-4 text-gray-400">
+                        <p class="flex items-start gap-3">
+                            <span class="text-brand-accent mt-1">📍</span>
+                            <span>台中市北區健行路6號B1<br><span class="text-sm text-stone-500">(近親親戲院)</span></span>
+                        </p>
+                        <p class="flex items-center gap-3">
+                            <span class="text-brand-accent">📞</span>
+                            <span>04 2234 4591</span>
+                        </p>
+                        <p class="flex items-start gap-3">
+                            <span class="text-brand-accent mt-1">🕒</span>
+                            <span>
+                                平日 12:00 ~ 22:00<br>
+                                假日 10:00 ~ 22:00<br>
+                                <span class="text-red-400 text-sm">每週三公休</span>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="flex gap-4 mt-8">
+                        <!-- Facebook Icon (Blue & White) -->
+                        <a href="https://www.facebook.com/strawberrytrueescape" target="_blank" class="w-10 h-10 rounded-full bg-[#1877F2] text-white flex items-center justify-center hover:brightness-110 transition-all shadow-lg shadow-blue-900/50 group">
+                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036c-2.648 0-3.216 1.407-3.216 3.206v.75h2.897l-.627 3.667h-2.27v7.98H13.84h-4.74z"></path>
+                            </svg>
+                        </a>
+                        
+                        <!-- Instagram Icon (Brand Gradient) -->
+                        <a href="https://www.instagram.com/grassmiemie?igsh=MXR4emR4NGV3eHVmNw==" target="_blank" class="w-10 h-10 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white flex items-center justify-center hover:brightness-110 transition-all shadow-lg shadow-pink-900/50 group">
+                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Simple Map Visualization -->
+                <div class="rounded-xl overflow-hidden bg-stone-800 relative h-64 border border-stone-700 group">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.457850882375!2d120.6908383!3d24.1556831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d60232f6a7d%3A0x1234567890abcdef!2z5Y-w5Lit5biC5YyX5Y2A5YGl6KGM6LevNuiZnw!5e0!3m2!1szh-TW!2stw!4v1620000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" class="opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"></iframe>
+                    <div class="absolute inset-0 pointer-events-none flex items-center justify-center">
+                        <span class="bg-black/70 text-white px-4 py-2 rounded backdrop-blur-sm opacity-100 group-hover:opacity-0 transition-opacity">查看地圖</span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12 pt-8 border-t border-stone-800 text-gray-600 text-sm">
+                &copy; 2024 Grass Baa Baa Studio. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Full Screen Detail Modal -->
+    <div id="modal" class="fixed inset-0 z-[100] hidden">
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-md transition-opacity duration-300 cursor-pointer" onclick="closeModal()"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
+            <!-- pointer-events-auto added to inner modal so clicks inside don't close it -->
+            <div class="bg-stone-900 w-full max-w-5xl h-[90vh] rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row border border-stone-700 animate-fadeInUp pointer-events-auto relative">
+                
+                <button onclick="closeModal()" class="absolute top-4 right-4 z-20 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-red-500/80 transition-colors cursor-pointer">✕</button>
+
+                <!-- Modal Image -->
+                <!-- Modified: Changed object-cover to object-contain and added padding to prevent cropping -->
+                <div class="w-full md:w-2/5 h-64 md:h-full relative shrink-0 bg-stone-950 flex items-center justify-center p-6 border-b md:border-b-0 md:border-r border-stone-800">
+                    <img id="modal-img" src="" class="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+                </div>
+
+                <!-- Modal Content -->
+                <div class="w-full md:w-3/5 p-8 overflow-y-auto no-scrollbar">
+                    <div class="mb-2">
+                        <span id="modal-tags" class="text-brand-accent text-sm font-bold tracking-widest uppercase"></span>
+                    </div>
+                    <h2 id="modal-title" class="text-4xl font-display font-bold text-white mb-6">Title</h2>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-8 text-sm">
+                        <div class="bg-stone-800 p-3 rounded border border-stone-700">
+                            <div class="text-gray-500 mb-1">遊戲時間</div>
+                            <div id="modal-time" class="text-white font-bold text-lg">-</div>
+                        </div>
+                        <div class="bg-stone-800 p-3 rounded border border-stone-700">
+                            <div class="text-gray-500 mb-1">建議人數</div>
+                            <div id="modal-players" class="text-white font-bold text-lg">-</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <h4 class="text-purple-300 font-bold mb-3 border-l-4 border-purple-500 pl-3">故事背景</h4>
+                        <p id="modal-story" class="text-gray-300 leading-relaxed whitespace-pre-line text-lg"></p>
+                    </div>
+
+                    <div id="modal-note" class="mb-8 hidden">
+                        <div class="bg-yellow-900/20 border border-yellow-600/30 text-yellow-500 p-4 rounded-lg flex gap-3 items-center">
+                            <span class="text-xl">⚠️</span>
+                            <span id="modal-note-text" class="font-bold"></span>
+                        </div>
+                    </div>
+
+                    <div class="mt-auto">
+                        <h4 class="text-purple-300 font-bold mb-3 border-l-4 border-purple-500 pl-3">價格說明</h4>
+                        <ul id="modal-prices" class="space-y-2 mb-8 text-gray-400"></ul>
+
+                        <a id="modal-link" href="#" target="_blank" class="block w-full py-4 bg-gradient-to-r from-purple-700 to-indigo-700 text-white text-center rounded-xl font-bold text-lg hover:from-purple-600 hover:to-indigo-600 shadow-lg shadow-purple-900/40 transition-all transform hover:-translate-y-1">
+                            前往預約系統
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW: News Modal -->
+    <div id="news-modal" class="fixed inset-0 z-[100] hidden">
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-md transition-opacity duration-300 cursor-pointer" onclick="closeNewsModal()"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
+            <div class="bg-stone-900 w-full max-w-4xl max-h-[90vh] rounded-2xl overflow-hidden shadow-2xl flex flex-col border border-stone-700 animate-fadeInUp pointer-events-auto relative">
+                
+                <button onclick="closeNewsModal()" class="absolute top-4 right-4 z-20 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-red-500/80 transition-colors cursor-pointer">✕</button>
+
+                <!-- Modal Content -->
+                <div class="flex flex-col h-full overflow-y-auto no-scrollbar">
+                    <!-- Image Container (Only if image exists) -->
+                    <div id="news-modal-img-container" class="w-full bg-stone-950 flex items-center justify-center hidden border-b border-stone-800 relative">
+                        <img id="news-modal-img" src="" class="max-w-full max-h-[60vh] object-contain">
+                    </div>
+
+                    <!-- Text Content -->
+                    <div class="p-8">
+                        <div class="mb-3">
+                            <span id="news-modal-type" class="px-3 py-1 bg-purple-900/50 text-purple-300 text-sm font-bold rounded border border-purple-700/50"></span>
+                        </div>
+                        <h2 id="news-modal-title" class="text-3xl font-display font-bold text-white mb-6"></h2>
+                        <p id="news-modal-desc" class="text-gray-300 leading-relaxed whitespace-pre-line text-lg"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // 🔧 資料設定區
+        // ============================================
+
+        // 1. 最新活動 - Google Sheet CSV 連結
+        // --------------------------------------------
+        const NEWS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTb_tlYhbz938RmC1l1yA7QGMoBN9Qafvw_1xcBUTnpf0vyrDLM_7Boq6Lf2qcxrpBZdVAwKrqotlP4/pub?output=csv';
+
+        // 2. 密室遊戲資料設定
+        // --------------------------------------------
+        // ⚠️ 重要：請將 image 的網址換成您自己上傳到 Google Sites 的圖片網址
+        // 絕對不要再使用 ibb.co 連結
+        const games = [
+            {
+                id: 1,
+                title: "不存在的女兒",
+                // Image Update: Github Link
+                image: "https://github.com/YOYO700702ai/strawberryescape/blob/main/01.png?raw=true", 
+                category: ["Horror", "Story"],
+                tags: ["微恐", "劇情向", "演繹"],
+                players: "2-6 人",
+                time: "100 分鐘",
+                priceRange: "$600-850",
+                story: "『憶界』這是一個由怨靈的回憶所構成的世界。\n在這裡，你可以找到靈魂生前的秘密，以及靈魂來不及交付的物品...",
+                note: "強烈建議 3～4 人體感最佳",
+                prices: { 2: 850, 3: 680, 4: 680, 5: 600, 6: 600 },
+                link: "https://strawberryescape.simplybook.asia/v2/?fbclid=IwY2xjawPp995leHRuA2FlbQIxMABicmlkETFBempRZXRpTWtOUHc5alJIc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHlFRPTvtyxllUGT2-vTXpay5onfQ6SudkjFFa5L5QiXcq8ilnrdrckhAfKEB_aem_TVSXSe0Zv03-Odffo5MtYQ#book/category/1/service/5/count/1/"
+            },
+            {
+                id: 2,
+                title: "哈梅爾寺",
+                // Image Update: Github Link
+                image: "https://github.com/YOYO700702ai/strawberryescape/blob/main/07.jpg?raw=true",
+                category: ["Horror", "Thriller"],
+                tags: ["驚悚", "懸疑", "抉擇"],
+                players: "2-4 人",
+                time: "90 分鐘",
+                priceRange: "$580-650",
+                story: "這裡有一個曾經香火鼎盛的寺廟，然而，幾年前發生了一件意外，五個孩子闖進寺廟內，全體失蹤。\n警方調查無果後，這裡被封印，於是就慢慢荒廢了。\n時隔多年，這裡成了著名的鬼廟，據說常常有人在這裡失蹤……",
+                note: null,
+                prices: { 2: 650, 3: 580, 4: 580 },
+                link: "https://strawberryescape.simplybook.asia/v2/?fbclid=IwY2xjawPp995leHRuA2FlbQIxMABicmlkETFBempRZXRpTWtOUHc5alJIc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHlFRPTvtyxllUGT2-vTXpay5onfQ6SudkjFFa5L5QiXcq8ilnrdrckhAfKEB_aem_TVSXSe0Zv03-Odffo5MtYQ#book/category/1/service/7/count/1/"
+            },
+            {
+                id: 3,
+                title: "這是ＡＩ做的密室",
+                // Image Update: Github Link
+                image: "https://github.com/YOYO700702ai/strawberryescape/blob/main/09.jpg?raw=true",
+                category: ["SciFi", "Cute"],
+                tags: ["童話", "科技", "可愛"],
+                players: "2-6 人",
+                time: "90 分鐘",
+                priceRange: "$500-650",
+                story: "你們已經在這間公司實習兩年了，只要能通過這個由AI自動編輯出的考核，就可以升任正式員工！\n聽說每年的考題都不一樣，因為是隨機產生的房間，所以也不能提前準備。\n但你們非常有信心，人類怎麼能輸給AI呢？",
+                note: null,
+                prices: { 2: 650, 3: 550, 4: 550, 5: 500, 6: 500 },
+                link: "https://strawberryescape.simplybook.asia/v2/?fbclid=IwY2xjawPp995leHRuA2FlbQIxMABicmlkETFBempRZXRpTWtOUHc5alJIc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHlFRPTvtyxllUGT2-vTXpay5onfQ6SudkjFFa5L5QiXcq8ilnrdrckhAfKEB_aem_TVSXSe0Zv03-Odffo5MtYQ#book/category/1/service/2/count/1/"
+            },
+            {
+                id: 4,
+                title: "杰佩多先生",
+                // Image Update: Github Link
+                image: "https://github.com/YOYO700702ai/strawberryescape/blob/main/08.jpg?raw=true",
+                category: ["Horror", "Thriller"],
+                tags: ["驚悚", "馬戲團"],
+                players: "3-6 人",
+                time: "90 分鐘",
+                priceRange: "$500-580",
+                story: "聽說年輕人之間流行一種試膽遊戲，叫做「尋找杰佩多先生的馬戲團」。\n傳聞馬戲團會在凌晨12點出沒在小鎮隨機地點，只要你跟你的夥伴友情足夠堅定，就能獲邀進馬戲團觀看神奇的表演。\n今天你跟朋友們相約玩試膽活動，深夜時分......",
+                note: null,
+                prices: { 3: 580, 4: 580, 5: 500, 6: 500 },
+                link: "https://strawberryescape.simplybook.asia/v2/?fbclid=IwY2xjawPp995leHRuA2FlbQIxMABicmlkETFBempRZXRpTWtOUHc5alJIc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHlFRPTvtyxllUGT2-vTXpay5onfQ6SudkjFFa5L5QiXcq8ilnrdrckhAfKEB_aem_TVSXSe0Zv03-Odffo5MtYQ#book/category/1/service/4/count/1/"
+            }
+        ];
+
+        // ============================================
+        // 🔧 程式邏輯區
+        // ============================================
+
+        // --- GLOBAL VARIABLES ---
+        let allNewsData = [];
+
+        // --- INIT & CORE FUNCTIONS ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderGameCards(games);
+            fetchAndRenderNews(); // Modified to fetch from CSV
+
+            // Mobile Menu Toggle
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+
+            // --- CAROUSEL LOGIC ---
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.hero-slide');
+            const dots = document.querySelectorAll('.slide-dot');
+            
+            function nextSlide() {
+                // Fade out current
+                slides[currentSlide].classList.remove('opacity-100');
+                slides[currentSlide].classList.add('opacity-0');
+                dots[currentSlide].classList.remove('opacity-100');
+                dots[currentSlide].classList.add('opacity-40');
+
+                // Update index
+                currentSlide = (currentSlide + 1) % slides.length;
+
+                // Fade in next
+                slides[currentSlide].classList.remove('opacity-0');
+                slides[currentSlide].classList.add('opacity-100');
+                dots[currentSlide].classList.remove('opacity-40');
+                dots[currentSlide].classList.add('opacity-100');
+            }
+
+            // Start loop
+            setInterval(nextSlide, 3500); // Change slide every 3.5 seconds
+        });
+
+        // --- FETCH & PARSE NEWS ---
+        async function fetchAndRenderNews() {
+            try {
+                const response = await fetch(NEWS_CSV_URL);
+                const text = await response.text();
+                allNewsData = parseCSV(text); // Store in global variable
+                renderNews(allNewsData);
+            } catch (error) {
+                console.error('Error loading news:', error);
+                document.getElementById('news-container').innerHTML = '<div class="col-span-full text-center text-gray-500 py-8">暫時無法載入最新活動資訊</div>';
+            }
+        }
+
+        function parseCSV(csvText) {
+            const lines = csvText.split(/\r?\n/);
+            const data = [];
+            
+            // Start from i=1 to skip header row
+            for (let i = 1; i < lines.length; i++) {
+                // Regex to properly split CSV (handles commas inside quotes)
+                const row = lines[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+                
+                if (row.length < 4) continue; // Skip incomplete rows
+
+                // Clean quotes from values
+                const cleanRow = row.map(val => val ? val.trim().replace(/^"|"$/g, '').replace(/""/g, '"') : '');
+                
+                // New Mapping: 
+                // A[0]: Type, B[1]: Title, C[2]: Image, D[3]: Desc
+                
+                const type = cleanRow[0] || '公告';
+                const title = cleanRow[1] || '';
+                const image = cleanRow[2] || '';
+                const desc = cleanRow[3] || '';
+
+                if (title) { // Ensure there is at least a title
+                    data.push({
+                        type: type,
+                        title: title,
+                        image: image,
+                        desc: desc
+                    });
+                }
+            }
+            return data;
+        }
+
+        // --- RENDER NEWS ---
+        function renderNews(data) {
+            const container = document.getElementById('news-container');
+            container.innerHTML = '';
+
+            if (data.length === 0) {
+                container.innerHTML = '<div class="col-span-full text-center text-gray-500 py-8">目前沒有最新活動</div>';
+                return;
+            }
+
+            data.forEach((item, index) => {
+                const el = document.createElement('div');
+                // Updated styles: Compact text-only card
+                el.className = 'bg-stone-800/40 border border-stone-700/50 hover:border-brand-accent/50 rounded-lg news-card-hover transition-all duration-300 flex flex-col cursor-pointer group h-full';
+                el.onclick = () => openNewsModal(index);
+                
+                // Modified: Removed Image Preview from card view
+                // Images are only shown in the modal now
+
+                el.innerHTML = `
+                    <div class="p-5 flex flex-col h-full relative">
+                        <!-- Icon indicating clickability -->
+                        <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity text-brand-accent">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                        </div>
+                        
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="px-2 py-0.5 bg-purple-900/30 text-purple-300 text-xs font-bold rounded border border-purple-700/30">${item.type}</span>
+                        </div>
+                        
+                        <h3 class="text-base font-bold text-white mb-2 group-hover:text-brand-accent transition-colors line-clamp-1">${item.title}</h3>
+                        
+                        <!-- Reduced line clamp for cleaner look -->
+                        <p class="text-sm text-gray-500 leading-relaxed line-clamp-2">${item.desc}</p>
+                        
+                        <!-- "Read More" hint -->
+                        <div class="mt-auto pt-3 text-xs text-stone-600 group-hover:text-brand-accent/70 transition-colors">
+                            點擊查看詳情 →
+                        </div>
+                    </div>
+                `;
+                container.appendChild(el);
+            });
+        }
+
+        // --- NEWS MODAL LOGIC ---
+        window.openNewsModal = function(index) {
+            const item = allNewsData[index];
+            if (!item) return;
+
+            // Set content
+            document.getElementById('news-modal-type').innerText = item.type;
+            document.getElementById('news-modal-title').innerText = item.title;
+            document.getElementById('news-modal-desc').innerText = item.desc;
+
+            // Image logic
+            const imgContainer = document.getElementById('news-modal-img-container');
+            const imgEl = document.getElementById('news-modal-img');
+            
+            if (item.image && item.image !== '無' && item.image.trim() !== '') {
+                imgEl.src = item.image;
+                imgContainer.classList.remove('hidden');
+                // Added padding/styling for full image view
+                imgContainer.className = "w-full bg-stone-950 flex items-center justify-center border-b border-stone-800 relative py-4"; 
+            } else {
+                imgContainer.classList.add('hidden');
+                imgEl.src = '';
+            }
+
+            // Show modal
+            document.getElementById('news-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        window.closeNewsModal = function() {
+            document.getElementById('news-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        // --- GAME CARDS ---
+        function renderGameCards(data) {
+            const container = document.getElementById('game-cards-container');
+            container.innerHTML = '';
+            
+            data.forEach(game => {
+                const el = document.createElement('div');
+                // Updated Card Styling for Grid Layout
+                el.className = `group cursor-pointer bg-stone-800 rounded-xl overflow-hidden border border-stone-700 hover:border-brand-accent transition-all duration-300 hover:shadow-lg hover:shadow-purple-900/20 flex flex-col h-full`;
+                el.onclick = () => openModal(game.id); // Direct to Modal
+                el.innerHTML = `
+                    <div class="relative h-64 overflow-hidden shrink-0">
+                        <!-- SAFETY UPDATE: Added placeholder fallback -->
+                        <img src="${game.image}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/222/999?text=Image+Error'">
+                        <div class="absolute top-3 right-3 flex flex-wrap gap-1 justify-end max-w-[90%]">
+                             ${game.tags.map(t => `<span class="px-2 py-1 bg-black/70 backdrop-blur-sm text-xs font-medium text-white rounded">#${t}</span>`).join('')}
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold font-display tracking-wide text-white mb-4 border-l-4 border-brand-accent pl-3 group-hover:text-purple-300 transition-colors">${game.title}</h3>
+                        <div class="space-y-2 mb-6 text-gray-400 text-sm">
+                             <div class="flex items-center gap-2"><span class="text-brand-accent">👥</span> ${game.players}</div>
+                             <div class="flex items-center gap-2"><span class="text-brand-accent">⏳</span> ${game.time}</div>
+                        </div>
+                        <div class="mt-auto pt-4 border-t border-stone-700 flex justify-between items-center">
+                            <span class="text-lg font-bold text-white">${game.priceRange} <span class="text-xs text-gray-500 font-normal">/ 人</span></span>
+                            <span class="text-brand-accent font-bold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">詳細介紹 →</span>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(el);
+            });
+        }
+
+        // --- MODAL LOGIC (GAMES) ---
+        window.openModal = function(id) {
+            const game = games.find(g => g.id === id);
+            if(!game) return;
+
+            document.getElementById('modal-img').src = game.image;
+            document.getElementById('modal-tags').innerText = game.tags.join(' • ');
+            document.getElementById('modal-title').innerText = game.title;
+            document.getElementById('modal-time').innerText = game.time;
+            document.getElementById('modal-players').innerText = game.players;
+            document.getElementById('modal-story').innerText = game.story;
+            document.getElementById('modal-link').href = game.link;
+            
+            // Prices List (Modified: Group same prices)
+            const priceList = document.getElementById('modal-prices');
+            priceList.innerHTML = '';
+            
+            // Convert prices object to sorted array
+            const sortedPrices = Object.entries(game.prices)
+                .map(([p, price]) => ({ players: parseInt(p), price: price }))
+                .sort((a, b) => a.players - b.players);
+
+            const groups = [];
+            sortedPrices.forEach(item => {
+                const lastGroup = groups[groups.length - 1];
+                // Check if same price and consecutive player count (e.g. 5 follows 4)
+                if (lastGroup && lastGroup.price === item.price && item.players === lastGroup.end + 1) {
+                    lastGroup.end = item.players;
+                } else {
+                    groups.push({ start: item.players, end: item.players, price: item.price });
+                }
+            });
+
+            groups.forEach(group => {
+                const li = document.createElement('li');
+                const rangeText = group.start === group.end ? `${group.start} 人` : `${group.start}-${group.end} 人`;
+                li.innerHTML = `<span class="text-white font-bold">${rangeText}</span> : $${group.price} / 人`;
+                priceList.appendChild(li);
+            });
+
+            // Note
+            const noteDiv = document.getElementById('modal-note');
+            if (game.note) {
+                noteDiv.classList.remove('hidden');
+                document.getElementById('modal-note-text').innerText = game.note;
+            } else {
+                noteDiv.classList.add('hidden');
+            }
+
+            document.getElementById('modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        window.closeModal = function() {
+            document.getElementById('modal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                closeNewsModal();
+            }
+        });
+    </script>
+</body>
+</html>
